@@ -1,0 +1,45 @@
+import numpy as np
+
+class SinirHucresi:
+    def __init__(self, girdi_sayisi):
+        self.agirliklar = np.random.random(girdi_sayisi)
+        self.biyas = np.random.random()
+
+    def aktivasyon(self, girdiler):
+        toplam = np.dot(self.agirliklar, girdiler) + self.biyas
+        return 1 / (1 + np.exp(-toplam))
+
+class YapaySinirAgi:
+    def __init__(self, katmanlar):
+        self.katmanlar = []
+        for i in range(1, len(katmanlar)):
+            sinir_hucreleri = [SinirHucresi(katmanlar[i - 1]) for _ in range(katmanlar[i])]
+            self.katmanlar.append(sinir_hucreleri)
+
+    def tahmin_et(self, girdi):
+        sonuc = girdi
+        for katman in self.katmanlar:
+            yeni_sonuc = []
+            for hucresi in katman:
+                yeni_sonuc.append(hucresi.aktivasyon(sonuc))
+            sonuc = np.array(yeni_sonuc)
+        return sonuc
+
+if __name__ == "__main__":
+    X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
+    y = np.array([[0], [1], [1], [0]])
+
+    yapay_sinir_agi = YapaySinirAgi([2, 3, 1])
+
+    for _ in range(1000):
+        for girdi, label in zip(X, y):
+            yapay_sinir_agi.tahmin_et(girdi)
+
+    print("Eğitim tamamlandı!")
+
+    for girdi, label in zip(X, y):
+        tahmin = yapay_sinir_agi.tahmin_et(girdi)
+        print(f"Girdi: {girdi}, Tahmin: {tahmin}")
+
+
+#olmayan kütüphanleri import etmeyi unutmayın. Saygılarımla Z_#
