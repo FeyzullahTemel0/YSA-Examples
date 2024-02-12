@@ -6,7 +6,7 @@ Bu repository, yapay sinir ağları üzerine temel bilgiler ve örnekler içerme
 
 Yapay sinir ağları (YSAs), insan beyninin sinir ağlarını modellemek için tasarlanmış bir yapay zeka teknolojisidir. Bu ağlar, örüntü tanıma, sınıflandırma, regresyon ve diğer birçok görevde kullanılabilirler.
 
-![Yapay Sinir Ağları](![chatgpt-ai-tools](https://github.com/FeyzullahTemel0/YSA-Examples/assets/109575132/2579a168-a87c-463a-9647-5221bd617260)
+![](![](https://github.com/FeyzullahTemel0/YSA-Examples/assets/109575132/2579a168-a87c-463a-9647-5221bd617260)
 )
 
 ## Repository İçeriği
